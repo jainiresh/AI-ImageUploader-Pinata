@@ -1,12 +1,8 @@
-import bodyParser from 'body-parser';
-import express from 'express'
-const app = express();
+import { generateImageServiceUrl } from "./imageGenerativeService/cloudflareWorker"
 
 
-app.use(bodyParser());
+export const generateAndUploadImageWithCloudflare = async () => {
+   const resultUrl = await generateImageServiceUrl(`Typing dog`);
+   return resultUrl;
+}
 
-
-
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
-});

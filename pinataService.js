@@ -1,5 +1,5 @@
 import { PINATA_GATEWAY_PATH } from "./constants/constants.js";
-import {pinata, pinataWeb3} from './pinataConfig.js'
+import {pinata, pinataWeb3} from './config/pinataConfig.js'
 
 // const file = new File(["Hello !"], 'testFile.txt', {
 //     type: "text/plain"

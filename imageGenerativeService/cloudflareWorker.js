@@ -38,8 +38,8 @@ export const generateImageServiceUrl = async (prompt) => {
   return {pinataUrl : `${pinataUrl}`};
 };
 
-async function testing(){
-    await generateImageServiceUrl("Cat typing !");
-}
+// async function testing(){
+//     await generateImageServiceUrl("Cat typing !");
+// }
 
-testing();
+// testing();
