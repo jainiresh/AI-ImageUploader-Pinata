@@ -1,4 +1,4 @@
-import { generateImageServiceUrl } from "./imageGenerativeService/cloudflareWorker"
+import { generateImageServiceUrl } from "./imageGenerativeService/cloudflareWorker.js"
 
 
 export const generateAndUploadImageWithCloudflare = async () => {
