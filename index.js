@@ -6,3 +6,4 @@ export const generateAndUploadImageWithCloudflare = async () => {
    return resultUrl;
 }
 
+console.log(await generateAndUploadImageWithCloudflare())
