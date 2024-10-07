@@ -26,20 +26,12 @@ async function run(model, input) {
     
 }
   
-export const generateImageServiceUrl = async (prompt) => {
+export const generateImageServiceUrl = async ({prompt}) => {
 
-  let finalPrompt = `Give me an image of the situation happening in the following prompt :   ${prompt}`;
   const {pinataUrl} = await run(CLOUDFLARE_IMAGE_MODEL, {
-    prompt:finalPrompt
+    prompt
   });
 
   
-  console.log("Pinata access url " + pinataUrl);
   return {pinataUrl : `${pinataUrl}`};
 };
-
-// async function testing(){
-//     await generateImageServiceUrl("Cat typing !");
-// }
-
-// testing();

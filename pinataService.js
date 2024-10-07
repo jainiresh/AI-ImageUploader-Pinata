@@ -15,41 +15,28 @@ export async function uploadFile({arrayBuffer}) {
     })
 
     const upload = await pinata.upload.file(file);
-    console.log("Uploaded file details " + JSON.stringify(upload));
 
     return {pinataCid : upload.cid, pinataGateway : PINATA_GATEWAY_PATH}
 }
 
-export async function uploadFileViaWeb3({arrayBuffer}) {
+export async function uploadFileViaWeb3({arrayBuffer, blob}) {
+
+    let file = null;
+
 
     
-    
+    if(arrayBuffer != undefined){    
     const blob = new Blob([Buffer.from(arrayBuffer)])
-    const file = new File([blob], {
+    file = new File([blob], {
         type : 'image/png'
     })
-    
+    }
+    else{
+        file = new File([blob], {
+            type : 'image/png'
+        })
+    }
     const upload = await pinataWeb3.upload.file(file);
-    console.log("Uploaded file details " + JSON.stringify(upload));
 
     return {pinataCid : upload.IpfsHash, pinataGateway : PINATA_GATEWAY_PATH}
-}
-
-async function getFile({cid}) {
-    const file = await pinata.gateways.get(cid);
-    console.log(file);
-
-    const url = await pinata.gateways.createSignedURL({
-        cid,
-        expires : 1800
-    })
-    console.log(url)
-}
-
-async function swapFile({cid, swapWithCid}) {
-    const file = await pinata.files.addSwap({
-        cid,
-        swapCid: swapWithCid
-    });
-    console.log(file);
 }

@@ -35,7 +35,6 @@ export const generateImageServiceUrl = async (prompt) => {
   });
 
   
-  console.log("Pinata access url " + pinataUrl);
   return {pinataUrl : `${pinataUrl}`};
 };
 
