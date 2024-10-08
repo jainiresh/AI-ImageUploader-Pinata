@@ -1,0 +1,48 @@
+*This is a submission for the [The Pinata Challenge ](https://dev.to/challenges/pinata)*
+
+## What I Built
+
+Many AI image generation models output only image blobs, which can create a significant challenge for developers seeking reliable hosting solutions. This often involves a tedious series of steps to find an appropriate hosting service and integrate it into their workflow.
+
+Enter PINA-AI Image hosting: my project streamlines this process by providing a comprehensive solution for generating and hosting AI images in one seamless package. I have packaged this functionality into an npm module, making it even easier for developers to access and utilize.
+
+With PINA-AI Image hosting, users can effortlessly generate images of various open-source tools such as Hugging Face, OpenAI, and Cloudflare, etc.,. Developers can choose any of these options to generate images through a simple function call, which returns the hosted URL as a response. This integration eliminates the hassle of managing separate hosting arrangements and allows developers to focus on their projects rather than the complexities of image management.
+
+By combining image generation and hosting into a single, user-friendly npm package, Pina-AI Image Hub serves as a valuable resource for developers looking to enhance their workflows and showcase their projects with minimal effort.
+
+## Demo
+<!-- Share a link to your application and include some screenshots here. -->
+
+Npm package link : 
+{% embed https://www.npmjs.com/package/ai-generate-and-pinata-host %}
+
+## My Code
+Source code : 
+{% embed https://github.com/jainiresh/AI-ImageUploader-Pinata/ %}
+
+
+## More Details
+
+Pina-AI Image Hub leverages the Pinata IPFS service to provide seamless image hosting. Here are some clear examples of how Pinata is integrated into the project:
+
+**1. Image Uploading:**
+ After generating an image blob using one of the supported AI models (e.g., Hugging Face, OpenAI, Cloudflare), the package automatically uploads the image to Pinata. This is done through a NODE JS SDK's functional call, ensuring that users don't have to deal with complex hosting configurations.
+
+**2. Quick Access:** Once uploaded, the hosted image is immediately accessible via the returned URL. This allows developers to integrate the generated images into their projects without waiting for manual uploads or other delays.
+
+**3. Pinata Service Integration: **
+The package utilizes the Pinata node js sdk service to handle uploads. When the user calls the function to generate an image, the image blob is sent directly to PinataSDK, which returns a unique IPFS URL. This URL can then be used anywhere—be it in documentation, presentations, or shared with others.
+
+**4. Example with Multiple Tools:**
+Users can easily switch between different AI models when generating images. The package abstracts the complexity, allowing for straightforward usage.
+
+**5. Error Handling:** The integration includes robust error handling to manage potential issues during the upload process. If an upload fails (e.g., due to network issues), the package provides informative error messages, guiding users on how to resolve the problem.
+
+
+<!-- Team Submissions: Please pick one member to publish the submission and credit teammates by listing their DEV usernames 
+
+directly in the body of the post. -->
+
+<!-- Don't forget to add a cover image (if you want). -->
+
+<!-- Thanks for participating! -->

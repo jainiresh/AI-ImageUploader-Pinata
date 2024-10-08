@@ -1,0 +1,10 @@
+// export const CLOUDFLARE_API_KEY = process.env.CLOUDFLARE_API_KEY || "W3v6ffHWxczZO9f1gQvyeKwcZSJsFNH_8drcDzZA"
+// export const CLOUDFLARE_ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID || "90fc83070e95f461645dd2ed67ef202d"
+// export const CLOUDFLARE_IMAGE_MODEL = process.env.CLOUDFLARE_IMAGE_MODEL || "@cf/stabilityai/stable-diffusion-xl-base-1.0"
+
+// export const PINATA_GATEWAY_DOMAIN = process.env.PINATA_GATEWAY_DOMAIN || "beige-effective-bison-926.mypinata.cloud"
+// export const PINATA_GATEWAY_PATH = process.env.PINATA_GATEWAY_PATH || "https://beige-effective-bison-926.mypinata.cloud/ipfs"
+// export const PINATA_JWT_KEY = process.env.PINATA_JWT_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJkM2Q2MmNmMy1kZThhLTRiMGYtOWE5Ni1mNzdiYTA3MDUyMDgiLCJlbWFpbCI6Im5pcmVzaHBhbmRpYW4xOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJGUkExIn0seyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJOWUMxIn1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiNWJkOGU0NzQzMDU2YzM4ZjE3ODgiLCJzY29wZWRLZXlTZWNyZXQiOiI4OWEzMDA5MGNiYTI4ZDI3YzE4NGY2MmQwZDM0NDhlZjAxMWUwZmFkNzFjYTAzMGNmNDY2NDRiYzAwNWMzYWI0IiwiZXhwIjoxNzU5NjU0Njg2fQ.n-N7BPxbAST5CZRvVx0rPnxI9eGJ7dQjNiJB4C_oMfE"
+
+// export default HUGGING_FACE_ACCESS_TOKEN = process.env.HUGGING_FACE_ACCESS_TOKEN || "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"
+
