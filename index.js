@@ -18,6 +18,10 @@ export const generateHuggingFaceHostedUrl = async ({prompt}) => {
 
 export const generateOpenAIHostedUrl = async ({prompt}) => {
   const resultUrl = await imageGenerativeServiceForOpenAI({prompt});
+  console.log(resultUrl)
   return { pinataUrl : resultUrl}
 }
 
+
+
+generateOpenAIHostedUrl({prompt: 'A witch'})

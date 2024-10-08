@@ -22,7 +22,7 @@ async function query(data) {
     }
 }
 
-export const imageGenerativeServiceForHuggingFace = async (prompt) => {
+export const imageGenerativeServiceForHuggingFace = async ({prompt}) => {
 
     const responseBlob = await query({ inputs: prompt });
 
