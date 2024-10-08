@@ -1,5 +1,6 @@
 import { generateImageServiceUrlViaHuggingFace } from "./imageGenerativeService/huggingFaceAI.js";
 import { generateImageServiceUrlViaCloudflare } from "./imageGenerativeService/cloudflareWorker.js";
+import { generateImageServiceUrlViaOpenAi } from "./imageGenerativeService/openAi.js";
 
 
 
@@ -15,5 +16,8 @@ export const generateHuggingFaceHostedUrl = async ({prompt}) => {
 }
 
 
+export const generateOpenAIHostedUrl = async ({prompt}) => {
+  const resultUrl = await generateImageServiceUrlViaOpenAi({prompt});
+  return { pinataUrl : resultUrl}
+}
 
-console.log(await generateCloudflareHostedUrl({prompt: `Astronaut in a sushi shop, standing in oneleg and praying to buddha !`}))

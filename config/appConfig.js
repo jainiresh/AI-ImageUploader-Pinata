@@ -12,5 +12,7 @@ export const appConfig = {
   
     HUGGING_FACE_ACCESS_TOKEN: process.env.HUGGING_FACE_ACCESS_TOKEN,
 
-    DEEP_AI_API_KEY : process.env.DEEP_AI_API_KEY
+    DEEP_AI_API_KEY : process.env.DEEP_AI_API_KEY,
+
+    OPEN_AI_API_KEY : process.env.OPEN_AI_API_KEY
   };
