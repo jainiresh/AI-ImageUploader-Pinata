@@ -1,8 +1,6 @@
 # np [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
-> A better `npm publish`
-
-<img src="media/screenshot.gif" width="688">
+> Smart solution for hosting AI generated images
 
 ## Why
 
@@ -30,6 +28,8 @@ npm install ai-generate-and-pinata-host@latest
 ```
 
 ## Usage
+
+
 
 
 ## Config

@@ -4,7 +4,7 @@ import { generateImageServiceUrlViaCloudflare } from "./imageGenerativeService/c
 
 
 
-export const generateAndUploadImageWithCloudflare = async ({prompt}) => {
+export const generateCloudflareHostedUrl = async ({prompt}) => {
    const resultUrl = await generateImageServiceUrlViaCloudflare({prompt});
    return {pinataUrl : resultUrl};
 }
@@ -14,4 +14,6 @@ export const generateHuggingFaceHostedUrl = async ({prompt}) => {
   return {pinataUrl : resultUrl};
 }
 
-// console.log(await generateAndUploadImageWithCloudflare({prompt: `Astronaut in a sushi shop, standing in oneleg and praying to buddha !`}))
+
+
+console.log(await generateCloudflareHostedUrl({prompt: `Astronaut in a sushi shop, standing in oneleg and praying to buddha !`}))

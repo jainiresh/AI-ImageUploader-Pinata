@@ -10,5 +10,7 @@ export const appConfig = {
     PINATA_GATEWAY_PATH: process.env.PINATA_GATEWAY_PATH ,
     PINATA_JWT_KEY: process.env.PINATA_JWT_KEY,
   
-    HUGGING_FACE_ACCESS_TOKEN: process.env.HUGGING_FACE_ACCESS_TOKEN
+    HUGGING_FACE_ACCESS_TOKEN: process.env.HUGGING_FACE_ACCESS_TOKEN,
+
+    DEEP_AI_API_KEY : process.env.DEEP_AI_API_KEY
   };
