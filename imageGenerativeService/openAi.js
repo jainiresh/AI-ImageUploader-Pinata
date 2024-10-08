@@ -1,44 +1,28 @@
-import {  uploadFileViaWeb3 } from "../pinataService.js";
+import { uploadFileViaWeb3 } from "../pinataService.js";
 
-async function run(model, input) {
+async function generateImage(prompt) {
   try{
-    const response = await fetch(
-      `https://api.openai.com/v1/images/generations`,
-      {
-        headers: { Authorization: `Bearer ${OPEN_AI_APIKEY}`},
-        method: "POST",
-        body: JSON.stringify(input),
-      }
-    );
-
-    
-
-
-    const imageBuffer = await response.arrayBuffer();
-
-    const {pinataCid, pinataGateway} = await uploadFileViaWeb3({arrayBuffer:imageBuffer});
-    let pinataUrl = pinataGateway + "/" +pinataCid ;
-    return { pinataUrl }
-  }
-  catch(err){
-    console.log(err);
-  }
-    
-}
-  
-export const generateImageServiceUrl = async (prompt) => {
-
-  let finalPrompt = `Give me an image of the situation happening in the following prompt :   ${prompt}`;
-  const {pinataUrl} = await run(CLOUDFLARE_IMAGE_MODEL, {
-    prompt:finalPrompt
+  const response = await fetch('https://api.openai.com/v1/images/generations', {
+    prompt: prompt,
+    n: 1,
+    size: "1024x1024"
+  }, {
+    headers: {
+      'Authorization': `Bearer YOUR_API_KEY`,
+      'Content-Type': 'application/json'
+    },
+    responseType: 'arraybuffer'
   });
+ return Buffer.from(response.data, 'binary');;
+}
+catch(err){
+  console.error(err)
+}
+}
 
-  
-  return {pinataUrl : `${pinataUrl}`};
+  export const generateImageServiceUrlViaOpenAi = async (prompt) => {
+    const responseUrl = await generateImage({ inputs: prompt });
+    const { pinataCid, pinataGateway } = await uploadFileViaWeb3({ arrayBuffer: responseUrl });
+    return pinataGateway + "/" + pinataCid;
 };
 
-async function testing(){
-    await generateImageServiceUrl("Cat typing !");
-}
-
-testing();
