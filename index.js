@@ -1,13 +1,17 @@
-import { generateImageServiceUrl } from "./imageGenerativeService/cloudflareWorker.js"
+import { generateImageServiceUrlViaHuggingFace } from "./imageGenerativeService/huggingFaceAI.js";
+import { generateImageServiceUrlViaCloudflare } from "./imageGenerativeService/cloudflareWorker.js";
+
+
 
 
 export const generateAndUploadImageWithCloudflare = async ({prompt}) => {
-   const resultUrl = await generateImageServiceUrl({prompt});
-   return {url : resultUrl};
+   const resultUrl = await generateImageServiceUrlViaCloudflare({prompt});
+   return {pinataUrl : resultUrl};
 }
 
-export const generateAndUploadImageWithOpenAI = async ({prompt}) => {
-  const resultUrl = await generateImage
+export const generateHuggingFaceHostedUrl = async ({prompt}) => {
+  const resultUrl = await generateImageServiceUrlViaHuggingFace({prompt});
+  return {pinataUrl : resultUrl};
 }
 
-console.log(await generateAndUploadImageWithCloudflare({prompt: `Cyber punk Indian flag`}))
+// console.log(await generateAndUploadImageWithCloudflare({prompt: `Astronaut in a sushi shop, standing in oneleg and praying to buddha !`}))

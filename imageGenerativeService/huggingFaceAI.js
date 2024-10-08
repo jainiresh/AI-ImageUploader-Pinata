@@ -6,7 +6,7 @@ async function query(data) {
             "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev",
             {
                 headers: {
-                    Authorization: "Bearer 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",
+                    Authorization: `Bearer ${HUGGING_FACE_ACCESS_TOKEN}`,
                     "Content-Type": "application/json",
                 },
                 method: "POST",
@@ -21,14 +21,13 @@ async function query(data) {
     }
 }
 
-export const generateImageServiceUrl = async (prompt) => {
+export const generateImageServiceUrlViaHuggingFace = async (prompt) => {
 
     const responseBlob = await query({ inputs: prompt });
 
 
     const { pinataCid, pinataGateway } = await uploadFileViaWeb3({ blob: responseBlob });
-    let pinataUrl = pinataGateway + "/" + pinataCid;
-    return { pinataUrl }
+    return pinataGateway + "/" + pinataCid;
 
 };
 

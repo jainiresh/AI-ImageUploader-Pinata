@@ -1,9 +1,6 @@
-import { PINATA_GATEWAY_PATH } from "./constants/constants.js";
 import {pinata, pinataWeb3} from './config/pinataConfig.js'
+import { appConfig } from "./config/appConfig.js";
 
-// const file = new File(["Hello !"], 'testFile.txt', {
-//     type: "text/plain"
-// })
 
 export async function uploadFile({arrayBuffer}) {
 
@@ -16,7 +13,7 @@ export async function uploadFile({arrayBuffer}) {
 
     const upload = await pinata.upload.file(file);
 
-    return {pinataCid : upload.cid, pinataGateway : PINATA_GATEWAY_PATH}
+    return {pinataCid : upload.cid, pinataGateway : appConfig.PINATA_GATEWAY_PATH}
 }
 
 export async function uploadFileViaWeb3({arrayBuffer, blob}) {
@@ -38,5 +35,5 @@ export async function uploadFileViaWeb3({arrayBuffer, blob}) {
     }
     const upload = await pinataWeb3.upload.file(file);
 
-    return {pinataCid : upload.IpfsHash, pinataGateway : PINATA_GATEWAY_PATH}
+    return {pinataCid : upload.IpfsHash, pinataGateway : appConfig.PINATA_GATEWAY_PATH}
 }

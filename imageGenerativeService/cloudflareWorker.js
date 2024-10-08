@@ -1,13 +1,12 @@
-
-import { CLOUDFLARE_API_KEY, CLOUDFLARE_IMAGE_MODEL } from "../constants/constants.js";
+import { appConfig } from "../config/appConfig.js";
 import {  uploadFileViaWeb3 } from "../pinataService.js";
 
 async function run(model, input) {
   try{
     const response = await fetch(
-      `https://api.cloudflare.com/client/v4/accounts/90fc83070e95f461645dd2ed67ef202d/ai/run/${model}`,
+      `https://api.cloudflare.com/client/v4/accounts/${appConfig.CLOUDFLARE_ACCOUNT_ID}/ai/run/${appConfig.CLOUDFLARE_IMAGE_MODEL}`,
       {
-        headers: { Authorization: `Bearer ${CLOUDFLARE_API_KEY}` },
+        headers: { Authorization: `Bearer ${appConfig.CLOUDFLARE_API_KEY}` },
         method: "POST",
         body: JSON.stringify(input),
       }
@@ -17,8 +16,7 @@ async function run(model, input) {
     const imageBuffer = await response.arrayBuffer();
 
     const {pinataCid, pinataGateway} = await uploadFileViaWeb3({arrayBuffer:imageBuffer});
-    let pinataUrl = pinataGateway + "/" +pinataCid ;
-    return { pinataUrl }
+    return pinataGateway + "/" +pinataCid;
   }
   catch(err){
     console.log(err);
@@ -26,12 +24,12 @@ async function run(model, input) {
     
 }
   
-export const generateImageServiceUrl = async ({prompt}) => {
+export const generateImageServiceUrlViaCloudflare = async ({prompt}) => {
 
-  const {pinataUrl} = await run(CLOUDFLARE_IMAGE_MODEL, {
+  const pinataUrl = await run(appConfig.CLOUDFLARE_IMAGE_MODEL, {
     prompt
   });
 
   
-  return {pinataUrl : `${pinataUrl}`};
+  return pinataUrl;
 };

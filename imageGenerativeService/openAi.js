@@ -1,4 +1,3 @@
-import { CLOUDFLARE_API_KEY, CLOUDFLARE_IMAGE_MODEL } from "../constants/constants.js";
 import {  uploadFileViaWeb3 } from "../pinataService.js";
 
 async function run(model, input) {
