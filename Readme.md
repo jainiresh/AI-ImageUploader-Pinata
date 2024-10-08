@@ -53,3 +53,53 @@ HUGGING_FACE_ACCESS_TOKEN=<secret>
 #Open AI API Configuration
 OPEN_AI_API_KEY=<secret>
 ```
+
+## Usage
+
+```
+import { generateCloudflareHostedUrl, generateHuggingFaceHostedUrl, generateOpenAIHostedUrl } from "ai-generate-and-pinata-host";
+
+let result = {}
+
+let prompt = `Witch running a marathon with a dog and horse`;
+
+const openAiData = await generateOpenAIHostedUrl({prompt});
+result.openAiUrl = openAiData.pinataUrl;
+
+console.log("Open AI generated image uploaded, here is the URL : " + result.openAiUrl);
+
+const cloudflareData = await generateCloudflareHostedUrl({prompt});
+result.cloudflareUrl = cloudflareData.pinataUrl;
+
+console.log("Cloudflare AI worker generated image uploaded, here is the URL : " + result.cloudflareUrl);
+
+
+const huggingfaceData = await generateHuggingFaceHostedUrl({prompt});
+result.huggingfaceUrl = huggingfaceData.pinataUrl;
+
+console.log("Huggingface AI generated image uploaded, here is the URL : " + result.huggingfaceUrl);
+
+
+console.log("Here is the output : ")
+console.log(result);
+
+```
+
+## Output
+
+```
+┌──(kali㉿kali)-[~/ai-generate-and-pinata-host]
+└─$ node app.js
+Open AI generated image uploaded, here is the URL : https://beige-effective-bison-926.mypinata.cloud/ipfs/bafybeiabxkxhljzhlpadr3yebbmwkp2dqcv7ntdjo7rvc2mgawonosmogi
+
+Cloudflare AI worker generated image uploaded, here is the URL : https://beige-effective-bison-926.mypinata.cloud/ipfs/bafybeiglgvjxalzf4ch5mdhsqsyz2u2m737f6lpkran2j6ejoim4ni6yd4
+
+Huggingface AI generated image uploaded, here is the URL : https://beige-effective-bison-926.mypinata.cloud/ipfs/bafkreih7xdlfqz7ltgvarxmclvezby3dv4mhf4hex7zw76hlceobfyn3fy
+
+Here is the output : 
+{
+  openAiUrl: 'https://beige-effective-bison-926.mypinata.cloud/ipfs/bafybeiabxkxhljzhlpadr3yebbmwkp2dqcv7ntdjo7rvc2mgawonosmogi',
+  cloudflareUrl: 'https://beige-effective-bison-926.mypinata.cloud/ipfs/bafybeiglgvjxalzf4ch5mdhsqsyz2u2m737f6lpkran2j6ejoim4ni6yd4',
+  huggingfaceUrl: 'https://beige-effective-bison-926.mypinata.cloud/ipfs/bafkreih7xdlfqz7ltgvarxmclvezby3dv4mhf4hex7zw76hlceobfyn3fy'
+}
+```
