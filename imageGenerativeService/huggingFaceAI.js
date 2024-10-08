@@ -1,3 +1,4 @@
+import { appConfig } from "../config/appConfig.js";
 import { uploadFileViaWeb3 } from "../pinataService.js";
 
 async function query(data) {
@@ -6,7 +7,7 @@ async function query(data) {
             "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev",
             {
                 headers: {
-                    Authorization: `Bearer ${HUGGING_FACE_ACCESS_TOKEN}`,
+                    Authorization: `Bearer ${appConfig.HUGGING_FACE_ACCESS_TOKEN}`,
                     "Content-Type": "application/json",
                 },
                 method: "POST",
