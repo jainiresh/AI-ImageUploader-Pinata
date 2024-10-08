@@ -14,7 +14,6 @@ async function generateImage({prompt}) {
         n: 1
       });
 
-    //   console.log(response.data[0].url);
       return response.data[0].url
 }
 catch(err){
@@ -22,17 +21,13 @@ catch(err){
 }
 }
 
-  export const generateImageServiceUrlViaOpenAi = async ({prompt}) => {
+  export const imageGenerativeServiceForOpenAI = async ({prompt}) => {
     const responseUrl = await generateImage({ prompt });
 
     let arrayBuffer = await fetch(responseUrl);
     arrayBuffer =await arrayBuffer.arrayBuffer();
 
     const { pinataCid, pinataGateway } = await uploadFileViaWeb3({ arrayBuffer });
-    console.log(pinataGateway + "/" + pinataCid);
     return (pinataGateway + "/" + pinataCid);
 };
 
-
-
-// generateImageServiceUrlViaOpenAi(`Astronaut`);

@@ -24,7 +24,7 @@ async function run(model, input) {
     
 }
   
-export const generateImageServiceUrlViaCloudflare = async ({prompt}) => {
+export const imageGenerativeServiceForCloudflare = async ({prompt}) => {
 
   const pinataUrl = await run(appConfig.CLOUDFLARE_IMAGE_MODEL, {
     prompt

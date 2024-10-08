@@ -1,23 +1,23 @@
-import { generateImageServiceUrlViaHuggingFace } from "./imageGenerativeService/huggingFaceAI.js";
-import { generateImageServiceUrlViaCloudflare } from "./imageGenerativeService/cloudflareWorker.js";
-import { generateImageServiceUrlViaOpenAi } from "./imageGenerativeService/openAi.js";
+import {  imageGenerativeServiceForHuggingFace } from "./imageGenerativeService/huggingFaceAI.js";
+import {  imageGenerativeServiceForCloudflare } from "./imageGenerativeService/cloudflareWorker.js";
+import { imageGenerativeServiceForOpenAI } from "./imageGenerativeService/openAi.js";
 
 
 
 
 export const generateCloudflareHostedUrl = async ({prompt}) => {
-   const resultUrl = await generateImageServiceUrlViaCloudflare({prompt});
+   const resultUrl = await imageGenerativeServiceForCloudflare({prompt});
    return {pinataUrl : resultUrl};
 }
 
 export const generateHuggingFaceHostedUrl = async ({prompt}) => {
-  const resultUrl = await generateImageServiceUrlViaHuggingFace({prompt});
+  const resultUrl = await imageGenerativeServiceForHuggingFace({prompt});
   return {pinataUrl : resultUrl};
 }
 
 
 export const generateOpenAIHostedUrl = async ({prompt}) => {
-  const resultUrl = await generateImageServiceUrlViaOpenAi({prompt});
+  const resultUrl = await imageGenerativeServiceForOpenAI({prompt});
   return { pinataUrl : resultUrl}
 }
 
